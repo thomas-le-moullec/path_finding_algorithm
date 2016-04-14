@@ -5,7 +5,7 @@
 ## Login   <le-dio_l@epitech.net>
 ## 
 ## Started on  Thu Apr 14 10:22:07 2016 leo LE DIOURON
-## Last update Thu Apr 14 10:28:00 2016 leo LE DIOURON
+## Last update Thu Apr 14 11:08:39 2016 leo LE DIOURON
 ##
 
 NAME		=	lem_in
@@ -16,7 +16,13 @@ RM		=	rm -f
 
 MAIN		=	./sources/main
 
-SRCS		=	$(MAIN)main.c	\
+PARSER		=	./sources/parser
+
+ALGO		=	./sources/algo
+
+SRCS		=	$(MAIN)main.c		\
+			$(PARSER)parser.c	\
+			$(ALGO)algo.c		\
 
 OBJS		=	$(SRCS:.c=.o)
 
