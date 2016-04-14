@@ -5,7 +5,7 @@
 ## Login   <le-dio_l@epitech.net>
 ## 
 ## Started on  Thu Apr 14 10:22:07 2016 leo LE DIOURON
-## Last update Thu Apr 14 11:08:39 2016 leo LE DIOURON
+## Last update Thu Apr 14 23:17:37 2016 Thomas LE MOULLEC
 ##
 
 NAME		=	lem_in
@@ -14,21 +14,37 @@ CC		=	gcc -g
 
 RM		=	rm -f
 
-MAIN		=	./sources/main
+MAIN		=	./sources/main/
 
-PARSER		=	./sources/parser
+PARSER		=	./sources/parser/
 
-ALGO		=	./sources/algo
+ALGO		=	./sources/algo/
+
+MY_LIB		=	./sources/mylib/
 
 SRCS		=	$(MAIN)main.c		\
 			$(PARSER)parser.c	\
+			$(PARSER)check_buffer.c	\
+			$(PARSER)valid.c	\
+			$(PARSER)fill_links.c	\
+			$(PARSER)fill_nbr.c	\
+			$(PARSER)db_com.c	\
+			$(PARSER)init.c		\
+			$(PARSER)functions.c	\
 			$(ALGO)algo.c		\
+			$(MY_LIB)disp.c		\
+			$(MY_LIB)my_epur_str.c	\
+			$(MY_LIB)my_get_nbr.c	\
+			$(MY_LIB)my_put_nbr.c	\
+			$(MY_LIB)my_strlen.c	\
+			$(MY_LIB)my_free.c	\
+			$(MY_LIB)my_strcmp.c	\
 
 OBJS		=	$(SRCS:.c=.o)
 
-IFLAGS		=	-I. ./includes/
+IFLAGS		=	-I ./includes/
 
-CFLAGS		=	-W -Wall -Wextra
+CFLAGS		=	-W -Wall -Wextra $(IFLAGS)
 
 all:			$(NAME)
 
