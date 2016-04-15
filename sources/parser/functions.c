@@ -5,7 +5,7 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Thu Apr 14 17:15:20 2016 Thomas LE MOULLEC
-** Last update Thu Apr 14 23:06:38 2016 Thomas LE MOULLEC
+** Last update Fri Apr 15 13:46:27 2016 Thomas LE MOULLEC
 */
 
 #include "lem_in.h"
@@ -51,7 +51,13 @@ int		links_fct(int *i, char *line, t_data *data)
 
   j = 0;
   if (first == 0)
-    data->infos.ret = *i;
+    {
+      data->infos.ret = *i - 2;
+      while (data->parser.buffer[data->infos.ret] != '\0' && \
+	     data->parser.buffer[data->infos.ret] != '\n')
+	data->infos.ret--;
+      data->infos.ret++;
+    }
   first++;
   tmp = NULL;
   if ((valid_link(line)) == ERROR)

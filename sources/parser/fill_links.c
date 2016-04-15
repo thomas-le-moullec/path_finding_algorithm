@@ -5,7 +5,7 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Thu Apr 14 22:51:01 2016 Thomas LE MOULLEC
-** Last update Thu Apr 14 23:47:26 2016 Thomas LE MOULLEC
+** Last update Fri Apr 15 14:51:49 2016 Thomas LE MOULLEC
 */
 
 #include "lem_in.h"
@@ -54,65 +54,6 @@ int		fill_tubes(t_data *data)
       y++;
     }
   data->infos.tubes[y] = NULL;
-  return (SUCCESS);
-}
-
-int		my_strcmp_colon(char *tube, char *name)
-{
-  int		i;
-
-  i = 0;
-  while (tube[i] != '\0' && tube[i] != '-')
-    {
-      if (tube[i] != name[i])
-	return (ERROR);
-      i++;
-    }
-  return (SUCCESS);
-}
-
-char		*cut_pipe(char *tube)
-{
-  int		i;
-  int		j;
-  char		*stock;
-
-  i = 0;
-  j = 0;
-  stock = NULL;
-  while (tube[i] != '\0' && tube[i] != '-')
-    i++;
-  if (tube[i] != '-')
-    return (NULL);
-  i++;
-  while (tube[i] != '\0')
-    {
-      stock[j] = tube[i];
-      i++;
-      j++;
-    }
-  stock[j] = '\0';
-  return (stock);
-}
-
-int		fill_id_pipe(t_data *data, int i)
-{
-  int		y;
-
-  y = 0;
-  while (data->infos.tubes[y] != NULL)
-    {
-      if (my_strcmp_colon(data->infos.tubes[y], data->nodes[i].name) == SUCCESS)
-	{
-	  if (!(data->nodes[i].id_pipe[data->nodes[i].cmpt] = malloc(sizeof(char) * (my_strlen(data->infos.tubes[y] + 1)))))
-	    return (ERROR);
-	  data->nodes[i].id_pipe[data->nodes[i].cmpt] = cut_pipe(data->infos.tubes[y]);
-	  if ((data->nodes[i].id_pipe[data->nodes[i].cmpt]) == NULL)
-	    return (ERROR);
-	  data->nodes[i].cmpt++;
-	}
-      y++;
-    }
   return (SUCCESS);
 }
 

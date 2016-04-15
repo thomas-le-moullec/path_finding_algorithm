@@ -5,7 +5,7 @@
 ## Login   <le-dio_l@epitech.net>
 ## 
 ## Started on  Thu Apr 14 10:22:07 2016 leo LE DIOURON
-## Last update Thu Apr 14 23:17:37 2016 Thomas LE MOULLEC
+## Last update Fri Apr 15 14:52:23 2016 Thomas LE MOULLEC
 ##
 
 NAME		=	lem_in
@@ -26,6 +26,7 @@ SRCS		=	$(MAIN)main.c		\
 			$(PARSER)parser.c	\
 			$(PARSER)check_buffer.c	\
 			$(PARSER)valid.c	\
+			$(PARSER)fill_id.c	\
 			$(PARSER)fill_links.c	\
 			$(PARSER)fill_nbr.c	\
 			$(PARSER)db_com.c	\

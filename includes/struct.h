@@ -5,7 +5,7 @@
 ** Login   <le-dio_l@epitech.net>
 ** 
 ** Started on  Thu Apr 14 10:32:03 2016 leo LE DIOURON
-** Last update Thu Apr 14 23:44:10 2016 Thomas LE MOULLEC
+** Last update Fri Apr 15 13:38:18 2016 Thomas LE MOULLEC
 */
 
 #ifndef STRUCT_H_
@@ -39,13 +39,13 @@ typedef struct		s_maillon
   int			id;
   char			*name;
   int			nb_pipe;
-  char			**id_pipe;
+  int			*id_pipe;
   int			cmpt;
 }			t_maillon;
 
 typedef struct		s_path
 {
-  int			value;
+  int			cmpt;
   int			pos;
   int			*paths;
   struct s_path		*next;

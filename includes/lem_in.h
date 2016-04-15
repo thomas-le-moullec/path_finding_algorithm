@@ -5,7 +5,7 @@
 ** Login   <le-dio_l@epitech.net>
 ** 
 ** Started on  Thu Apr 14 10:29:16 2016 leo LE DIOURON
-** Last update Thu Apr 14 23:40:12 2016 Thomas LE MOULLEC
+** Last update Fri Apr 15 14:54:00 2016 Thomas LE MOULLEC
 */
 
 #ifndef LEMIN_H_
@@ -22,8 +22,10 @@
 int		fill_links(t_data *);
 int		fill_tubes(t_data *);
 int		count_line(t_data *, int);
+
+/*fill_id*/
 int		fill_id_pipe(t_data *, int);
-char            *cut_pipe(char *);
+int             my_cut_id(t_data *, int);
 int             my_strcmp_colon(char *, char *);
 
 /*main.c*/

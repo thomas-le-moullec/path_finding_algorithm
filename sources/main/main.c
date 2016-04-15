@@ -5,7 +5,7 @@
 ** Login   <le-dio_l@epitech.net>
 ** 
 ** Started on  Thu Apr 14 10:37:00 2016 leo LE DIOURON
-** Last update Thu Apr 14 22:49:36 2016 Thomas LE MOULLEC
+** Last update Fri Apr 15 14:59:11 2016 Thomas LE MOULLEC
 */
 
 #include "lem_in.h"
@@ -27,15 +27,22 @@ void		free_nodes(t_data *data)
 void		debug(t_data *data)
 {
   int		i;
+  int		j;
 
   i = 0;
   printf("nbr_links => %d | nbr_start => %d | nbr_end => %d | nbr_line => %d\n\n", data->infos.nbr_links, data->parser.nbr_start, data->parser.nbr_end, data->parser.nbr_line);
   while (i != data->infos.nbr_nodes)
     {
+      j = 0;
       printf("id => %d | name => %s | flag => %d | nb_pipe => %d\n", data->nodes[i].id, data->nodes[i].name, data->nodes[i].flag, data->nodes[i].nb_pipe);
+      while (j < data->nodes[i].nb_pipe)
+	{
+	  printf("%d ème tube 'id : %d | ", j, data->nodes[i].id_pipe[j]);
+	  j++;
+	}
       i++;
     }
-  printf("------------------------------------------------\n\n");
+  printf("\n\n------------------------------------------------\n\n");
 }
 
 int		main(int ac, char **av)
