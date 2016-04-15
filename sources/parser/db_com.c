@@ -5,7 +5,7 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Thu Apr 14 19:49:20 2016 Thomas LE MOULLEC
-** Last update Thu Apr 14 22:11:14 2016 Thomas LE MOULLEC
+** Last update Fri Apr 15 19:29:44 2016 Thomas LE MOULLEC
 */
 
 #include "lem_in.h"
@@ -37,26 +37,17 @@ int		my_start(int *i, t_data *data)
 
   tmp = NULL;
   if ((tmp = copy_line(data, i)) == NULL)
-    {
-      printf("The copy is a fail : %d\n", data->parser.buffer[*i]);
-      return (ERROR);
-    }
+    return (error_copying(data));
   if ((valid_node(tmp)) == ERROR)
-    {
-      printf("ERROR the TMP : %s is not valid\n", tmp);
-      return (ERROR);
-    }
+    return (error_node(data, tmp));
   data->parser.nbr_start++;
   data->nodes[data->infos.j].flag = START;
   data->nodes[data->infos.j].id = data->infos.j;
   data->nodes[data->infos.j].name = find_name(tmp);
+  if ((data->nodes[data->infos.j].name = NULL))
+    return (error_node(data, tmp));
   my_free(tmp);
   data->infos.j++;
-  if ((data->nodes[data->infos.j].name = NULL))
-    {
-      printf("ERROR name is NULL\n");
-      return (ERROR);
-    }
   return (SUCCESS);
 }
 
@@ -66,26 +57,17 @@ int		my_end(int *i, t_data *data)
 
   tmp = NULL;
   if ((tmp = copy_line(data, i)) == NULL)
-    {
-      printf("ERROR with the copy\n");
-      return (ERROR);
-    }
+    return (error_copying(data));
   if ((valid_node(tmp)) == ERROR)
-    {
-      printf("ERROR : %s is not valid\n", tmp);
-      return (ERROR);
-    }
+    return (error_node(data, tmp));
   data->parser.nbr_end++;
   data->nodes[data->infos.j].flag = END;
   data->nodes[data->infos.j].id = data->infos.j;
   data->nodes[data->infos.j].name = find_name(tmp);
+  if ((data->nodes[data->infos.j].name = NULL))
+    return (error_node(data, tmp));
   my_free(tmp);
   data->infos.j++;
-  if ((data->nodes[data->infos.j].name = NULL))
-    {
-      printf("I didn't find the name =D\n");
-      return (ERROR);
-    }
   return (SUCCESS);
 }
 

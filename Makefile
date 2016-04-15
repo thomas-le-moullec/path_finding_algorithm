@@ -5,7 +5,7 @@
 ## Login   <le-dio_l@epitech.net>
 ## 
 ## Started on  Thu Apr 14 10:22:07 2016 leo LE DIOURON
-## Last update Fri Apr 15 14:52:23 2016 Thomas LE MOULLEC
+## Last update Fri Apr 15 19:18:06 2016 Thomas LE MOULLEC
 ##
 
 NAME		=	lem_in
@@ -16,6 +16,8 @@ RM		=	rm -f
 
 MAIN		=	./sources/main/
 
+ERRORS		=	./sources/errors/
+
 PARSER		=	./sources/parser/
 
 ALGO		=	./sources/algo/
@@ -23,6 +25,7 @@ ALGO		=	./sources/algo/
 MY_LIB		=	./sources/mylib/
 
 SRCS		=	$(MAIN)main.c		\
+			$(ERRORS)error_args.c	\
 			$(PARSER)parser.c	\
 			$(PARSER)check_buffer.c	\
 			$(PARSER)valid.c	\
@@ -34,12 +37,13 @@ SRCS		=	$(MAIN)main.c		\
 			$(PARSER)functions.c	\
 			$(ALGO)algo.c		\
 			$(MY_LIB)disp.c		\
+			$(MY_LIB)my_strcmp.c	\
 			$(MY_LIB)my_epur_str.c	\
 			$(MY_LIB)my_get_nbr.c	\
 			$(MY_LIB)my_put_nbr.c	\
 			$(MY_LIB)my_strlen.c	\
 			$(MY_LIB)my_free.c	\
-			$(MY_LIB)my_strcmp.c	\
+			$(MY_LIB)my_strcpy.c	\
 
 OBJS		=	$(SRCS:.c=.o)
 

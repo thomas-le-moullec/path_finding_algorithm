@@ -5,7 +5,7 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Thu Apr 14 18:58:54 2016 Thomas LE MOULLEC
-** Last update Thu Apr 14 21:30:59 2016 Thomas LE MOULLEC
+** Last update Fri Apr 15 15:46:24 2016 Thomas LE MOULLEC
 */
 
 #include "lem_in.h"
@@ -62,19 +62,13 @@ int             check_line(t_data *data, int *i)
 
   line = NULL;
   if ((line = copy_line(data, i)) == NULL)
-    return (ERROR);
+    return (error_copying(data));
   if (data->parser.nbr_line == 0)
     return (fill_nbr_ants(data, line));
   if ((ret = find_type(data, line)) == ERROR)
-    {
-      printf("ERROR no TYPE with : %s\n", line);
-      return (ERROR);
-    }
+    return (error_type(data, line));
   if (((data->fct[ret])(i, line, data)) == ERROR)
-    {
-      printf("ERROR with function number : %d\n", ret);
-      return (ERROR);
-    }
+    return (ERROR);
   return (SUCCESS);
 }
 
@@ -86,10 +80,7 @@ int             check_buffer(t_data *data)
   while (data->parser.buffer[i] != '\0')
     {
       if ((check_line(data, &i)) == ERROR)
-	{
-	  printf("ERROR line => %d\n", data->parser.nbr_line + 1);
-	  return (ERROR);
-	}
+	return (ERROR);
       data->parser.nbr_line++;
       if (data->parser.buffer[i] == '\n')
         i++;
