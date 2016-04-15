@@ -5,7 +5,7 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Thu Apr 14 19:49:20 2016 Thomas LE MOULLEC
-** Last update Fri Apr 15 19:29:44 2016 Thomas LE MOULLEC
+** Last update Fri Apr 15 19:47:05 2016 Thomas LE MOULLEC
 */
 
 #include "lem_in.h"
@@ -44,7 +44,7 @@ int		my_start(int *i, t_data *data)
   data->nodes[data->infos.j].flag = START;
   data->nodes[data->infos.j].id = data->infos.j;
   data->nodes[data->infos.j].name = find_name(tmp);
-  if ((data->nodes[data->infos.j].name = NULL))
+  if ((data->nodes[data->infos.j].name == NULL))
     return (error_node(data, tmp));
   my_free(tmp);
   data->infos.j++;
@@ -64,7 +64,7 @@ int		my_end(int *i, t_data *data)
   data->nodes[data->infos.j].flag = END;
   data->nodes[data->infos.j].id = data->infos.j;
   data->nodes[data->infos.j].name = find_name(tmp);
-  if ((data->nodes[data->infos.j].name = NULL))
+  if ((data->nodes[data->infos.j].name == NULL))
     return (error_node(data, tmp));
   my_free(tmp);
   data->infos.j++;
