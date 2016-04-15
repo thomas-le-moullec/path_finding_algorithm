@@ -5,7 +5,7 @@
 ** Login   <le-dio_l@epitech.net>
 ** 
 ** Started on  Thu Apr 14 10:32:03 2016 leo LE DIOURON
-** Last update Fri Apr 15 13:38:18 2016 Thomas LE MOULLEC
+** Last update Fri Apr 15 20:20:13 2016 leo LE DIOURON
 */
 
 #ifndef STRUCT_H_
@@ -24,6 +24,17 @@
 #define SIMPLE_COM      1
 #define LINKS      	2
 #define NODES      	3
+
+#define BEGIN           0
+#define CURRENT         1
+#define FINISH          2
+
+typedef struct          s_ant
+{
+  int                   pos_path;
+  int                   num_path;
+  int                   flag;
+}                       t_ant;
 
 typedef struct		s_parser
 {
@@ -47,7 +58,7 @@ typedef struct		s_path
 {
   int			cmpt;
   int			pos;
-  int			*paths;
+  int			*history;
   struct s_path		*next;
   struct s_path		*prev;
 }			t_path;
@@ -60,15 +71,18 @@ typedef struct		s_infos
   int			nbr_nodes;
   int			nbr_links;
   char			**tubes;
+  int			start;
 }			t_infos;
 
 typedef struct		s_data
 {
-  t_parser		parser;
-  t_maillon		*nodes;
-  t_path		*path;
-  t_infos		infos;
-  int			(*fct[4])(int *, char *, struct s_data *);
+  t_parser              parser;
+  t_maillon             *nodes;
+  t_path                *path;
+  int                   **best_paths;
+  t_infos               infos;
+  t_ant                 *ant;
+  int                   (*fct[4])(int *, char *, struct s_data *);
 }			t_data;
 
 #endif

@@ -5,7 +5,7 @@
 ## Login   <le-dio_l@epitech.net>
 ## 
 ## Started on  Thu Apr 14 10:22:07 2016 leo LE DIOURON
-## Last update Fri Apr 15 19:18:06 2016 Thomas LE MOULLEC
+## Last update Fri Apr 15 20:04:48 2016 leo LE DIOURON
 ##
 
 NAME		=	lem_in
@@ -35,7 +35,9 @@ SRCS		=	$(MAIN)main.c		\
 			$(PARSER)db_com.c	\
 			$(PARSER)init.c		\
 			$(PARSER)functions.c	\
-			$(ALGO)algo.c		\
+			$(ALGO)algo_path.c	\
+			$(ALGO)algo_ant.c	\
+			$(ALGO)list.c		\
 			$(MY_LIB)disp.c		\
 			$(MY_LIB)my_strcmp.c	\
 			$(MY_LIB)my_epur_str.c	\

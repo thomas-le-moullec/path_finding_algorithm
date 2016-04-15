@@ -5,7 +5,7 @@
 ** Login   <le-dio_l@epitech.net>
 ** 
 ** Started on  Thu Apr 14 10:29:16 2016 leo LE DIOURON
-** Last update Fri Apr 15 19:15:02 2016 Thomas LE MOULLEC
+** Last update Fri Apr 15 20:21:23 2016 leo LE DIOURON
 */
 
 #ifndef LEMIN_H_
@@ -82,6 +82,24 @@ int		error_correspondance(char *, t_data *);
 int		error_node(t_data *, char *);
 int             error_simple_com(t_data *, char *);
 int             error_type(t_data *, char *);
+
+/******************ALGO*******************/
+
+/*algo_path*/
+int		algo(t_data *);
+int		find_best_path(t_data *);
+void		flag_nodes_path(t_data *, int *);
+
+/*algo_ant*/
+int		algo_ant(t_data *);
+int		move_ants(t_data *, int);
+int		fill_ant(t_data *);
+
+/*list*/
+int             creat_list(t_data *);
+void            delete_elem(t_path **);
+int             cpy_elem(t_path **, int);
+
 
 /******************MY_LIB*******************/
 
