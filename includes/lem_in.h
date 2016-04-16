@@ -5,7 +5,11 @@
 ** Login   <le-dio_l@epitech.net>
 ** 
 ** Started on  Thu Apr 14 10:29:16 2016 leo LE DIOURON
+<<<<<<< HEAD
 ** Last update Sat Apr 16 10:57:53 2016 leo LE DIOURON
+=======
+** Last update Sat Apr 16 11:44:34 2016 Thomas LE MOULLEC
+>>>>>>> c00ef3fa583e338226d9c1df42a22a4400c13b43
 */
 
 #ifndef LEMIN_H_
@@ -17,7 +21,6 @@
 #include "struct.h"
 
 /******************PARSER*******************/
-
 /*fill_links*/
 int             fill_links(t_data *);
 int             fill_tubes(t_data *);
@@ -65,20 +68,26 @@ int             double_com_fct(int *, char *, t_data *);
 int             my_start(int *, t_data *);
 int             my_end(int *, t_data *);
 
-/*functions.c*/
+/*links_fct.c*/
+char            *links_cpy(int *, char *);
 int             static_ptr(t_data *, int *);
+int             links_cmp(t_data *, char *, char *, char *);
+char            *other_cpy(int *, char *, int);
+
+/*functions.c*/
 int             simple_com_fct(int *, char *, t_data *);
 int             links_fct(int *, char *, t_data *);
-char            *links_cpy(int *, char *);
 int             nodes_fct(int *, char *, t_data *);
 
 /******************ERRORS*******************/
-int             error_args();
-int             error_reading();
 int             error_nbr_nodes();
-int             error_malloc();
 int             error_nbr_ants();
+
+int             error_malloc();
 int             error_copying(t_data *);
+int             error_reading();
+int             error_args();
+
 int             error_link(char *, t_data *);
 int             error_correspondance(char *, t_data *);
 int             error_node(t_data *, char *);
@@ -86,7 +95,6 @@ int             error_simple_com(t_data *, char *);
 int             error_type(t_data *, char *);
 
 /******************ALGO*******************/
-
 /*algo_path*/
 int		algo(t_data *);
 int		find_best_path(t_data *);
@@ -103,9 +111,7 @@ int             creat_list(t_data *);
 void            delete_elem(t_path **);
 int             cpy_elem(t_path **, int);
 
-
 /******************MY_LIB*******************/
-
 /*my_strcpy*/
 char		*my_strcpy_ptr(char *, char *, int);
 char            *my_strcpy_colon(char *, char *);
