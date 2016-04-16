@@ -1,16 +1,13 @@
 /*
-** lem_in.h for lemin in /home/le-dio_l/Modules/Module_Prog_elem/Lem-in/CPE_2015_Lemin
+** lem_in.h for lem_in in /home/le-dio_l/Modules/Module_Prog_elem/Lem-in/CPE_2015_Lemin
 ** 
 ** Made by leo LE DIOURON
 ** Login   <le-dio_l@epitech.net>
 ** 
-** Started on  Thu Apr 14 10:29:16 2016 leo LE DIOURON
-<<<<<<< HEAD
-** Last update Sat Apr 16 10:57:53 2016 leo LE DIOURON
-=======
-** Last update Sat Apr 16 11:44:34 2016 Thomas LE MOULLEC
->>>>>>> c00ef3fa583e338226d9c1df42a22a4400c13b43
+** Started on  Sat Apr 16 17:27:23 2016 leo LE DIOURON
+** Last update Sat Apr 16 17:27:28 2016 leo LE DIOURON
 */
+
 
 #ifndef LEMIN_H_
 # define LEMIN_H_

@@ -4,12 +4,8 @@
 ** Made by leo LE DIOURON
 ** Login   <le-dio_l@epitech.net>
 ** 
-** Started on  Thu Apr 14 10:37:00 2016 leo LE DIOURON
-<<<<<<< HEAD
-** Last update Sat Apr 16 10:37:27 2016 leo LE DIOURON
-=======
-** Last update Sat Apr 16 11:43:07 2016 Thomas LE MOULLEC
->>>>>>> c00ef3fa583e338226d9c1df42a22a4400c13b43
+** Started on  Sat Apr 16 17:26:55 2016 leo LE DIOURON
+** Last update Sat Apr 16 17:27:00 2016 leo LE DIOURON
 */
 
 #include "lem_in.h"
