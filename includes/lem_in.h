@@ -5,7 +5,7 @@
 ** Login   <le-dio_l@epitech.net>
 ** 
 ** Started on  Thu Apr 14 10:29:16 2016 leo LE DIOURON
-** Last update Sat Apr 16 10:14:44 2016 Thomas LE MOULLEC
+** Last update Sat Apr 16 10:24:27 2016 Thomas LE MOULLEC
 */
 
 #ifndef LEMIN_H_
@@ -107,6 +107,7 @@ int             cpy_elem(t_path **, int);
 
 /*my_strcpy*/
 char		*my_strcpy_ptr(char *, char *, int);
+char            *my_strcpy_colon(char *, char *);
 
 /*my_strlen*/
 int             my_strlen(char *);
