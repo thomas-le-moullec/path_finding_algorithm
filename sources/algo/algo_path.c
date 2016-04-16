@@ -5,7 +5,7 @@
 ** Login   <le-dio_l@epitech.net>
 ** 
 ** Started on  Thu Apr 14 11:07:26 2016 leo LE DIOURON
-** Last update Fri Apr 15 21:35:25 2016 leo LE DIOURON
+** Last update Sat Apr 16 17:01:59 2016 leo LE DIOURON
 */
 
 #include "lem_in.h"
@@ -17,36 +17,55 @@ void	flag_nodes_path(t_data *data, int *history)
   i = 0;
   while (history[i] != -1)
     {
-      if (data->nodes[history[i++]].flag == EMPTY)
-	data->nodes[history[i++]].flag = FULL;
+      if (data->nodes[history[i]].flag == EMPTY)
+	data->nodes[history[i]].flag = FULL;
       i++;
     }
+}
+
+int	check_history(int *history, int pos)
+{
+  int	i;
+
+  i = 0;
+  while (history[i] != -1)
+    {
+      /*      printf("history[%d] = %d et pos = %d\n", i, history[i], pos);*/
+      if (history[i++] == pos)
+	return (ERROR);
+    }
+  return (SUCCESS);
 }
 
 int	find_best_path(t_data *data)
 {
   int	i;
-  int	f;
 
   i = 0;
-  f =0;
   /*  printf("name = %s --> nb = %d\n", data->nodes[data->path->pos].name, data->nodes[data->path->pos].nb_pipe);*/
-  while (i <= data->nodes[data->path->pos].nb_pipe)
+  while (i < data->nodes[data->path->pos].nb_pipe)
     {
-      printf("on envoie --> %d\n", data->nodes[data->path->pos].id_pipe[i]);
-      cpy_elem(&data->path, data->nodes[data->path->pos].id_pipe[i++]);
+
+      if (check_history(data->path->history, data->nodes[data->path->pos].id_pipe[i]) == SUCCESS && data->nodes[data->path->pos].flag != FULL)
+	{
+	  /*	  printf("cpy ---> %d\n", data->nodes[data->path->pos].id_pipe[i]);*/
+	  cpy_elem(&data->path, data->nodes[data->path->pos].id_pipe[i]);
+	}
+      i++;
     }
-  printf("------------------------------\n\n");
-  printf("\n----%d-----\n", data->path->pos);
-  while (data->path->history[f] != -1)
-    printf("%d\n", data->path->history[f++]);
   delete_elem(&data->path);
-  printf("\n----%d-----\n", data->path->pos);
+  if (data->path->prev == data->path)
+    {
+      return (ERROR);
+    }
+  /*  printf("LE NOUVEAU EST %d ---> le prev est %d\n", data->path->pos, data->path->prev->pos);*/
+  /*  printf("Le nouveau path est %d\n", data->path->pos);
   while (data->path->history[f] != -1)
     printf("%d\n", data->path->history[f++]);
-  printf("------------------------------\n\n");
+    printf("\n------------------------------\n\n");*/
   if (data->nodes[data->path->pos].flag != END)
-    find_best_path(data);
+    if (find_best_path(data) == ERROR)
+      return (ERROR);
   return (SUCCESS);
 }
 
@@ -63,11 +82,22 @@ int	algo(t_data *data)
     return (ERROR);
   while (j < nb_turn)
     {
-      if (find_best_path(data) == ERROR)
+      if (creat_list(data) == ERROR)
 	return (ERROR);
-      flag_nodes_path(data, data->path->history);
-      data->best_paths[j] = data->path->history;
-      j++;
+      if (find_best_path(data) == ERROR)
+	{
+	  j = nb_turn;
+	}
+      /*      printf("j = %d & nb_turn = %d\n", j, nb_turn);*/
+      if (j != nb_turn)
+	{
+	  /*	  printf("Le tour numero %d est sorti !\n", j);*/
+	  flag_nodes_path(data, data->path->history);
+	  if (j < nb_turn)
+	    data->best_paths[j] = data->path->history;
+	  delete_elem(&data->path);
+	  j++;
+	}
     }
   data->best_paths[j] = NULL;
   return (SUCCESS);

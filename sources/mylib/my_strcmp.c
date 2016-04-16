@@ -5,7 +5,7 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Thu Apr 14 16:45:37 2016 Thomas LE MOULLEC
-** Last update Fri Apr 15 19:49:24 2016 Thomas LE MOULLEC
+** Last update Sat Apr 16 15:28:00 2016 leo LE DIOURON
 */
 
 #include "lem_in.h"
@@ -22,5 +22,7 @@ int		my_strcmp(char *str, char *src)
       else
 	return (ERROR);
     }
+  if (str[i] != src[i])
+    return (ERROR);
   return (SUCCESS);
 }

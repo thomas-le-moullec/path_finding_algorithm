@@ -5,7 +5,7 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Thu Apr 14 22:51:01 2016 Thomas LE MOULLEC
-** Last update Sat Apr 16 10:19:08 2016 Thomas LE MOULLEC
+** Last update Sat Apr 16 12:50:12 2016 leo LE DIOURON
 */
 
 #include "lem_in.h"
@@ -75,8 +75,8 @@ int             fill_links(t_data *data)
     return (ERROR);
   while (i < data->infos.nbr_nodes)
     {
-      if (!(data->nodes[i].id_pipe = malloc(sizeof(char) * \
-                                            data->nodes[i].nb_pipe)))
+      if (!(data->nodes[i].id_pipe = malloc(sizeof(int) * \
+                                            (data->nodes[i].nb_pipe + 1))))
         return (error_malloc());
       data->nodes[i].cmpt = 0;
       if ((fill_id_pipe(data, i)) == ERROR)
