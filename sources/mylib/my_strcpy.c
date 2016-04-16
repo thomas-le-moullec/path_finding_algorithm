@@ -5,7 +5,7 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Fri Apr 15 18:01:40 2016 Thomas LE MOULLEC
-** Last update Fri Apr 15 19:18:34 2016 Thomas LE MOULLEC
+** Last update Sat Apr 16 10:10:36 2016 Thomas LE MOULLEC
 */
 
 #include "lem_in.h"
@@ -22,5 +22,19 @@ char		*my_strcpy_ptr(char *src, char *dest, int ptr)
       ptr++;
     }
   dest[x] = '\0';
+  return (dest);
+}
+
+char            *my_strcpy_colon(char *src, char *dest)
+{
+  int           i;
+
+  i = 0;
+  while (src[i] != '\0' && src[i] != '-')
+    {
+      dest[i] = src[i];
+      i++;
+    }
+  dest[i] = '\0';
   return (dest);
 }

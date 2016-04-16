@@ -5,7 +5,7 @@
 ** Login   <le-dio_l@epitech.net>
 ** 
 ** Started on  Thu Apr 14 10:37:00 2016 leo LE DIOURON
-** Last update Fri Apr 15 21:16:02 2016 leo LE DIOURON
+** Last update Sat Apr 16 10:09:17 2016 Thomas LE MOULLEC
 */
 
 #include "lem_in.h"
@@ -57,8 +57,8 @@ int		main(int ac, char **av)
       return (ERROR);
     }
   debug(&data);
-  algo(&data);
-  algo_ant(&data);
+  /*  algo(&data);
+      algo_ant(&data);*/
   free_nodes(&data);
   return (SUCCESS);
 }

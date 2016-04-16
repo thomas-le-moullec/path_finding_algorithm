@@ -5,14 +5,14 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Thu Apr 14 22:51:01 2016 Thomas LE MOULLEC
-** Last update Fri Apr 15 19:51:25 2016 Thomas LE MOULLEC
+** Last update Sat Apr 16 10:19:08 2016 Thomas LE MOULLEC
 */
 
 #include "lem_in.h"
 
-int		count_line(t_data *data, int i)
+int             count_line(t_data *data, int i)
 {
-  int		cmpt;
+  int           cmpt;
 
   cmpt = 0;
   while (data->parser.buffer[i] != '\0' && data->parser.buffer[i] != '\n')
@@ -23,42 +23,42 @@ int		count_line(t_data *data, int i)
   return (cmpt);
 }
 
-int		loop_tubes(t_data *data, int *y, int i, int x)
+int             loop_tubes(t_data *data, int *y, int i, int x)
 {
   while (data->parser.buffer[i] != '\0')
     {
       x = 0;
       if (data->parser.buffer[i] == '#')
-	while (data->parser.buffer[i] != '\0' && \
-	       data->parser.buffer[i++] != '\n');
+        while (data->parser.buffer[i] != '\0' && \
+               data->parser.buffer[i++] != '\n');
       if (!(data->infos.tubes[*y] = malloc(sizeof(char) * \
-					  (count_line(data, i) + 1))))
-	return (error_malloc());
+					   (count_line(data, i) + 1))))
+        return (error_malloc());
       while (data->parser.buffer[i] != '\0' && data->parser.buffer[i] != '\n')
-	{
-	  data->infos.tubes[*y][x] = data->parser.buffer[i];
-	  x++;
-	  i++;
-	}
+        {
+          data->infos.tubes[*y][x] = data->parser.buffer[i];
+          x++;
+          i++;
+        }
       data->infos.tubes[*y][x] = '\0';
       if (data->parser.buffer[i] != '\0')
-	i++;
+        i++;
       *y = *y + 1;
     }
   return (SUCCESS);
 }
 
-int		fill_tubes(t_data *data)
+int             fill_tubes(t_data *data)
 {
-  int		i;
-  int		x;
-  int		y;
+  int           i;
+  int           x;
+  int           y;
 
   y = 0;
   x = 0;
   i = data->infos.ret;
   if (!(data->infos.tubes = malloc(sizeof(char *) * \
-				   (data->infos.nbr_links + 1))))
+                                   (data->infos.nbr_links + 1))))
     return (ERROR);
   if (loop_tubes(data, &y, i, x) == ERROR)
     return (ERROR);
@@ -66,9 +66,9 @@ int		fill_tubes(t_data *data)
   return (SUCCESS);
 }
 
-int		fill_links(t_data *data)
+int             fill_links(t_data *data)
 {
-  int		i;
+  int           i;
 
   i = 0;
   if ((fill_tubes(data)) == ERROR)
@@ -76,11 +76,11 @@ int		fill_links(t_data *data)
   while (i < data->infos.nbr_nodes)
     {
       if (!(data->nodes[i].id_pipe = malloc(sizeof(char) * \
-					    data->nodes[i].nb_pipe)))
-	return (error_malloc());
+                                            data->nodes[i].nb_pipe)))
+        return (error_malloc());
       data->nodes[i].cmpt = 0;
       if ((fill_id_pipe(data, i)) == ERROR)
-	return (ERROR);
+        return (ERROR);
       i++;
     }
   return (SUCCESS);

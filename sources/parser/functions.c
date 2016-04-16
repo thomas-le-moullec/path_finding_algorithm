@@ -5,12 +5,12 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Thu Apr 14 17:15:20 2016 Thomas LE MOULLEC
-** Last update Fri Apr 15 19:49:06 2016 Thomas LE MOULLEC
+** Last update Sat Apr 16 10:21:08 2016 Thomas LE MOULLEC
 */
 
 #include "lem_in.h"
 
-int		simple_com_fct(int *i, char *line, t_data *data)
+int             simple_com_fct(int *i, char *line, t_data *data)
 {
   *i = *i;
   data = data;
@@ -20,22 +20,53 @@ int		simple_com_fct(int *i, char *line, t_data *data)
   return (SUCCESS);
 }
 
-char		*links_cpy(int j, char *line)
+char            *links_cpy(int *j, char *line)
 {
-  char		*tmp;
+  char          *tmp;
 
   tmp = NULL;
-  while (line[j] != '\0' && line[j] != '-')
-    j++;
-  if (!(tmp = malloc(sizeof(*tmp) * (j + 1))))
+  while (line[*j] != '\0' && line[*j] != '-')
+    *j = *j + 1;
+  if (!(tmp = malloc(sizeof(*tmp) * (*j + 1))))
     return (NULL);
-  j = 0;
-  while (line[j] != '\0' && line[j] != '-')
+  *j = 0;
+  while (line[*j] != '\0' && line[*j] != '-')
     {
-      tmp[j] = line[j];
-      j++;
+      tmp[*j] = line[*j];
+      *j = *j + 1;
     }
-  tmp[j] = '\0';
+  if (line[*j] != '-')
+    return (NULL);
+  tmp[*j] = '\0';
+  *j = *j + 1;
+  return (tmp);
+}
+
+char            *other_cpy(int *j, char *line, int i)
+{
+  char          *tmp;
+
+  tmp = NULL;
+  while (line[i] != '\0' && line[i] != '-')
+    i++;
+  if (line[i] != '-')
+    return (NULL);
+  i++;
+  *j = i;
+  while (line[*j] != '\0')
+    *j = *j + 1;
+  if (!(tmp = malloc(sizeof(*tmp) * (*j - i + 1))))
+    return (NULL);
+  *j = i;
+  i = 0;
+  while (line[*j] != '\0')
+    {
+      tmp[i] = line[*j];
+      *j = *j + 1;
+      i++;
+    }
+  tmp[i] = '\0';
+  *j = 0;
   return (tmp);
 }
 
@@ -49,29 +80,42 @@ int		static_ptr(t_data *data, int *i)
   return (SUCCESS);
 }
 
-int		links_fct(int *i, char *line, t_data *data)
+int             links_fct(int *i, char *line, t_data *data)
 {
-  int		j;
-  char		*tmp;
-  static int	first = 0;
+  int           j;
+  char          *tmp;
+  char          *other;
+  static int    first = 0;
 
   j = 0;
   if (first == 0)
     static_ptr(data, i);
   first++;
   tmp = NULL;
+  other = NULL;
   if ((valid_link(line)) == ERROR)
     return (error_link(line, data));
-  if ((tmp = links_cpy(j, line)) == NULL)
+  if ((tmp = links_cpy(&j, line)) == NULL)
+    return (error_malloc());
+  if ((other = other_cpy(&j, line, 0)) == NULL)
     return (error_malloc());
   while (j < data->infos.nbr_nodes && \
-	 (my_strcmp(tmp, data->nodes[j].name) == ERROR))
+         (my_strcmp(tmp, data->nodes[j].name) == ERROR))
+    j++;
+  if (data->nodes[j].name == NULL || data->nodes[j].id == ERROR)
+    return (error_link(line, data));
+  data->nodes[j].nb_pipe++;
+  data->infos.nbr_links++;
+  j = 0;
+  while (j < data->infos.nbr_nodes && \
+         (my_strcmp(other, data->nodes[j].name) == ERROR))
     j++;
   if (data->nodes[j].name == NULL || data->nodes[j].id == ERROR)
     return (error_link(line, data));
   data->nodes[j].nb_pipe++;
   data->infos.nbr_links++;
   my_free(tmp);
+  my_free(other);
   my_free(line);
   return (SUCCESS);
 }
