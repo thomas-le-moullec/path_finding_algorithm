@@ -5,7 +5,7 @@
 ** Login   <le-dio_l@epitech.net>
 ** 
 ** Started on  Thu Apr 14 10:37:00 2016 leo LE DIOURON
-** Last update Sat Apr 16 10:09:17 2016 Thomas LE MOULLEC
+** Last update Sat Apr 16 11:43:07 2016 Thomas LE MOULLEC
 */
 
 #include "lem_in.h"
@@ -53,7 +53,7 @@ int		main(int ac, char **av)
   (void)av;
   if ((parser(ac, &data)) == ERROR)
     {
-      printf("THERE IS AN ERROR\n");
+      my_putstr("THERE IS AN ERROR\n", 2);
       return (ERROR);
     }
   debug(&data);

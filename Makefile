@@ -5,7 +5,7 @@
 ## Login   <le-dio_l@epitech.net>
 ## 
 ## Started on  Thu Apr 14 10:22:07 2016 leo LE DIOURON
-## Last update Fri Apr 15 20:04:48 2016 leo LE DIOURON
+## Last update Sat Apr 16 11:40:54 2016 Thomas LE MOULLEC
 ##
 
 NAME		=	lem_in
@@ -26,6 +26,8 @@ MY_LIB		=	./sources/mylib/
 
 SRCS		=	$(MAIN)main.c		\
 			$(ERRORS)error_args.c	\
+			$(ERRORS)error_act.c	\
+			$(ERRORS)error_nbr.c	\
 			$(PARSER)parser.c	\
 			$(PARSER)check_buffer.c	\
 			$(PARSER)valid.c	\
@@ -33,6 +35,7 @@ SRCS		=	$(MAIN)main.c		\
 			$(PARSER)fill_links.c	\
 			$(PARSER)fill_nbr.c	\
 			$(PARSER)db_com.c	\
+			$(PARSER)links_fct.c	\
 			$(PARSER)init.c		\
 			$(PARSER)functions.c	\
 			$(ALGO)algo_path.c	\
