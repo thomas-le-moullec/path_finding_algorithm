@@ -5,7 +5,7 @@
 ** Login   <le-dio_l@epitech.net>
 ** 
 ** Started on  Fri Apr 15 16:51:19 2016 leo LE DIOURON
-** Last update Sat Apr 16 15:52:43 2016 leo LE DIOURON
+** Last update Sat Apr 16 18:10:58 2016 leo LE DIOURON
 */
 
 #include "lem_in.h"
@@ -57,6 +57,8 @@ int	algo_ant(t_data *data)
   int	j;
   int	num;
 
+  if (data->best_paths == NULL)
+    return (ERROR);
   if (fill_ant(data) == ERROR)
     return (ERROR);
   j = 0;

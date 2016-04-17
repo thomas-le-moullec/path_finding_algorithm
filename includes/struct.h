@@ -5,7 +5,7 @@
 ** Login   <le-dio_l@epitech.net>
 ** 
 ** Started on  Thu Apr 14 10:32:03 2016 leo LE DIOURON
-** Last update Fri Apr 15 20:20:13 2016 leo LE DIOURON
+** Last update Sun Apr 17 14:09:04 2016 leo LE DIOURON
 */
 
 #ifndef STRUCT_H_
@@ -38,7 +38,7 @@ typedef struct          s_ant
 
 typedef struct		s_parser
 {
-  char			buffer[READ_SIZE];
+  char			*buffer;
   int			nbr_start;
   int			nbr_end;
   int			nbr_line;

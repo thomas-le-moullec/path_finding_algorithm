@@ -1,11 +1,11 @@
 /*
-** main.c for main in /home/le-dio_l/Modules/Module_Prog_elem/Lem-in/CPE_2015_Lemin
+** main.c for main in /home/le-mou_t/rendu/CPE_2015_Lemin
 ** 
-** Made by leo LE DIOURON
-** Login   <le-dio_l@epitech.net>
+** Made by Thomas LE MOULLEC
+** Login   <le-mou_t@epitech.net>
 ** 
-** Started on  Sat Apr 16 17:26:55 2016 leo LE DIOURON
-** Last update Sun Apr 17 18:47:13 2016 Thomas LE MOULLEC
+** Started on  Sun Apr 17 18:54:50 2016 Thomas LE MOULLEC
+** Last update Sun Apr 17 18:56:32 2016 Thomas LE MOULLEC
 */
 
 #include "lem_in.h"
@@ -50,6 +50,8 @@ int		main(int ac, char **av)
 {
   t_data	data;
 
+  if (!(data.parser.buffer = malloc(100000000)))
+    exit(-1);
   (void)av;
   if ((parser(ac, &data)) == ERROR)
     return (ERROR);
@@ -57,5 +59,6 @@ int		main(int ac, char **av)
   algo(&data);
   algo_ant(&data);
   free_nodes(&data);
+  free(data.parser.buffer);
   return (SUCCESS);
 }

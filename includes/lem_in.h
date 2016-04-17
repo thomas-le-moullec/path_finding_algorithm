@@ -1,13 +1,12 @@
 /*
-** lem_in.h for lem_in in /home/le-dio_l/Modules/Module_Prog_elem/Lem-in/CPE_2015_Lemin
+** lem_in.h for lem_in in /home/le-mou_t/rendu/CPE_2015_Lemin
 ** 
-** Made by leo LE DIOURON
-** Login   <le-dio_l@epitech.net>
+** Made by Thomas LE MOULLEC
+** Login   <le-mou_t@epitech.net>
 ** 
-** Started on  Sat Apr 16 17:27:23 2016 leo LE DIOURON
-** Last update Sun Apr 17 18:43:43 2016 Thomas LE MOULLEC
+** Started on  Sun Apr 17 18:54:16 2016 Thomas LE MOULLEC
+** Last update Sun Apr 17 18:54:37 2016 Thomas LE MOULLEC
 */
-
 
 #ifndef LEMIN_H_
 # define LEMIN_H_
@@ -97,7 +96,7 @@ int             error_type(t_data *, char *);
 /******************ALGO*******************/
 /*algo_path*/
 int		algo(t_data *);
-int		find_best_path(t_data *);
+int		find_best_path(t_data *, int, int);
 void		flag_nodes_path(t_data *, int *);
 int		check_history(int *, int);
 
