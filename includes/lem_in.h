@@ -5,7 +5,7 @@
 ** Login   <le-dio_l@epitech.net>
 ** 
 ** Started on  Sat Apr 16 17:27:23 2016 leo LE DIOURON
-** Last update Sat Apr 16 17:27:28 2016 leo LE DIOURON
+** Last update Sun Apr 17 18:43:43 2016 Thomas LE MOULLEC
 */
 
 
@@ -53,6 +53,7 @@ void            init_id_pipe(t_data *, int);
 
 /*parser.c*/
 int             take_parser(t_data *);
+int             end_parser(t_data *);
 int             parser(int, t_data *);
 
 /*fill_nbr*/
@@ -77,6 +78,8 @@ int             links_fct(int *, char *, t_data *);
 int             nodes_fct(int *, char *, t_data *);
 
 /******************ERRORS*******************/
+int		error_default(char *);
+
 int             error_nbr_nodes();
 int             error_nbr_ants();
 

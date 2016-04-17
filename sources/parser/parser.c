@@ -5,7 +5,7 @@
 ** Login   <le-dio_l@epitech.net>
 ** 
 ** Started on  Thu Apr 14 11:06:28 2016 leo LE DIOURON
-** Last update Fri Apr 15 15:31:31 2016 Thomas LE MOULLEC
+** Last update Sun Apr 17 18:41:56 2016 Thomas LE MOULLEC
 */
 
 #include "lem_in.h"
@@ -31,6 +31,15 @@ int		take_parser(t_data *data)
   return (SUCCESS);
 }
 
+int		end_parser(t_data *data)
+{
+  if (data->parser.nbr_start != 1)
+    return (error_default("There is an Error, need one start\n"));
+  if (data->parser.nbr_end != 1)
+    return (error_default("There is an Error, need one end\n"));
+  return (SUCCESS);
+}
+
 int		parser(int ac, t_data *data)
 {
   if (ac != 1)
@@ -38,6 +47,8 @@ int		parser(int ac, t_data *data)
   if ((init_parser(data)) == ERROR)
     return (ERROR);
   if (take_parser(data) == ERROR)
+    return (ERROR);
+  if (end_parser(data) == ERROR)
     return (ERROR);
   return (SUCCESS);
 }
