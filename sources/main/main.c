@@ -5,7 +5,7 @@
 ** Login   <le-dio_l@epitech.net>
 ** 
 ** Started on  Sat Apr 16 17:26:55 2016 leo LE DIOURON
-** Last update Sat Apr 16 17:27:00 2016 leo LE DIOURON
+** Last update Sun Apr 17 15:25:34 2016 leo LE DIOURON
 */
 
 #include "lem_in.h"
@@ -50,15 +50,19 @@ int		main(int ac, char **av)
 {
   t_data	data;
 
+  if (!(data.parser.buffer = malloc(100000000)))
+    exit(-1);
   (void)av;
   if ((parser(ac, &data)) == ERROR)
     {
       my_putstr("THERE IS AN ERROR\n", 2);
       return (ERROR);
     }
-  debug(&data);
+  /*  debug(&data);*/
+  printf("Le parser est terminé.\n");
   algo(&data);
   algo_ant(&data);
   free_nodes(&data);
+  free(data.parser.buffer);
   return (SUCCESS);
 }

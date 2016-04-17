@@ -5,7 +5,7 @@
 ** Login   <le-dio_l@epitech.net>
 ** 
 ** Started on  Sat Apr 16 17:27:23 2016 leo LE DIOURON
-** Last update Sat Apr 16 17:27:28 2016 leo LE DIOURON
+** Last update Sun Apr 17 16:52:05 2016 leo LE DIOURON
 */
 
 
@@ -94,7 +94,7 @@ int             error_type(t_data *, char *);
 /******************ALGO*******************/
 /*algo_path*/
 int		algo(t_data *);
-int		find_best_path(t_data *);
+int		find_best_path(t_data *, int, int);
 void		flag_nodes_path(t_data *, int *);
 int		check_history(int *, int);
 
