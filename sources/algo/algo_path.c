@@ -5,12 +5,12 @@
 ** Login   <le-dio_l@epitech.net>
 ** 
 ** Started on  Thu Apr 14 11:07:26 2016 leo LE DIOURON
-** Last update Mon Apr 18 17:54:58 2016 Thomas LE MOULLEC
+** Last update Mon Apr 18 20:32:52 2016 Thomas CHABOT
 */
 
 #include "lem_in.h"
 
-void	flag_nodes_path(t_data *data, int *history)
+int	flag_nodes_path(t_data *data, int *history, int best_size)
 {
   int	i;
 
@@ -21,6 +21,9 @@ void	flag_nodes_path(t_data *data, int *history)
 	data->nodes[history[i]].flag = FULL;
       i++;
     }
+  if (i > (data->infos.nbr_ants + best_size))
+    return (ERROR);
+  return (SUCCESS);
 }
 
 int	check_history(int *history, int pos)
@@ -44,7 +47,7 @@ int     find_best_path(t_data *data, int f)
   while (i < data->nodes[data->path->pos].nb_pipe)
     {
       if (check_history(data->path->history, \
-			data->nodes[data->path->pos].id_pipe[i])	\
+			data->nodes[data->path->pos].id_pipe[i]) \
           == SUCCESS && data->nodes[data->path->pos].flag != FULL)
 	cpy_elem(&data->path, data->nodes[data->path->pos].id_pipe[i]);
       i++;
@@ -61,7 +64,9 @@ int     find_best_path(t_data *data, int f)
 int	algo(t_data *data, int a, int j)
 {
   int	nb_turn;
+  int	i;
 
+  i = 0;
   if (creat_list(data) == ERROR)
     return (ERROR);
   nb_turn = data->nodes[data->infos.start].nb_pipe;
@@ -76,7 +81,11 @@ int	algo(t_data *data, int a, int j)
 	return (ERROR);
       if (find_best_path(data, 0) == ERROR)
 	a = 1;
-      flag_nodes_path(data, data->path->history);
+      if (j == 0)
+	while (data->path->history[i] != -1)
+	  i++;
+      if (flag_nodes_path(data, data->path->history, i) == ERROR)
+	a = 1;
       if (a == 0)
 	data->best_paths[j++] = data->path->history;
       delete_elem(&data->path);

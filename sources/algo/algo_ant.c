@@ -5,7 +5,7 @@
 ** Login   <le-dio_l@epitech.net>
 ** 
 ** Started on  Fri Apr 15 16:51:19 2016 leo LE DIOURON
-** Last update Mon Apr 18 18:13:03 2016 Thomas LE MOULLEC
+** Last update Mon Apr 18 20:56:47 2016 Thomas CHABOT
 */
 
 #include "lem_in.h"
@@ -49,7 +49,8 @@ int	move_ants(t_data *data, int j)
 	}
     }
   j++;
-  if (data->ant[j].flag != BEGIN && (data->ant[j - 1].flag != FINISH))
+  if (j < data->infos.nbr_ants && data->ant[j].flag != BEGIN && \
+      (data->ant[j - 1].flag != FINISH))
     my_putchar(' ', 1);
   return (j);
 }
@@ -68,12 +69,12 @@ int	algo_ant(t_data *data)
     {
       j = 0;
       num = 0;
-      while (data->ant[j].flag != BEGIN)
+      while (j < data->infos.nbr_ants && data->ant[j].flag != BEGIN)
 	j = move_ants(data, j);
       if (data->ant[data->infos.nbr_ants - 1].flag != FINISH)
 	my_putchar('\n', 1);
-      while (data->best_paths[num] != NULL && data->ant[j].flag == BEGIN \
-	     && j < data->infos.nbr_ants)
+      while (data->best_paths[num] != NULL && j < data->infos.nbr_ants && \
+	     data->ant[j].flag == BEGIN)
 	{
 	  data->ant[j++].flag = CURRENT;
 	  num++;

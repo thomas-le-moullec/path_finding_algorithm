@@ -5,7 +5,7 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Thu Apr 14 20:49:01 2016 Thomas LE MOULLEC
-** Last update Mon Apr 18 18:03:30 2016 Thomas LE MOULLEC
+** Last update Mon Apr 18 20:43:00 2016 Thomas CHABOT
 */
 
 #include "lem_in.h"
@@ -31,16 +31,3 @@ int             valid_node(char *line)
     return (ERROR);
   return (SUCCESS);
 }
-/*
-int		valid_link(char *line)
-{
-  int		i;
-
-  i = 0;
-  while (line[i] != '\0' && line[i] != '-')
-    i++;
-  if (line[i] != '-')
-    return (ERROR);
-  return (SUCCESS);
-}
-*/

@@ -5,7 +5,7 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Thu Apr 14 18:58:54 2016 Thomas LE MOULLEC
-** Last update Mon Apr 18 17:42:56 2016 Thomas LE MOULLEC
+** Last update Mon Apr 18 20:45:29 2016 Thomas CHABOT
 */
 
 #include "lem_in.h"
@@ -29,7 +29,7 @@ char            *copy_line(t_data *data, int *i)
       stock[j++] = data->parser.buffer[*i];
       *i = *i + 1;
     }
-  if (data->parser.buffer[*i] == '\n')
+  while (data->parser.buffer[*i] == '\n')
     *i = *i + 1;
   stock[j] = '\0';
   return (my_epur_str(stock));
@@ -82,7 +82,7 @@ int             check_buffer(t_data *data)
       if ((check_line(data, &i)) == ERROR)
 	return (ERROR);
       data->parser.nbr_line++;
-      if (data->parser.buffer[i] == '\n')
+      while (data->parser.buffer[i] == '\n')
         i++;
     }
   return (SUCCESS);

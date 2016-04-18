@@ -5,7 +5,7 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Sun Apr 17 18:54:16 2016 Thomas LE MOULLEC
-** Last update Mon Apr 18 18:20:46 2016 Thomas LE MOULLEC
+** Last update Mon Apr 18 20:34:00 2016 Thomas CHABOT
 */
 
 #ifndef LEMIN_H_
@@ -81,7 +81,7 @@ int             error_type(t_data *, char *);
 
 int		algo(t_data *, int, int);
 int		find_best_path(t_data *, int);
-void		flag_nodes_path(t_data *, int *);
+int		flag_nodes_path(t_data *, int *, int);
 int		check_history(int *, int);
 
 int		algo_ant(t_data *);

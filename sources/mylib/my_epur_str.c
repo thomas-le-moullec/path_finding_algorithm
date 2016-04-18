@@ -5,7 +5,7 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Thu Apr 14 16:16:41 2016 Thomas LE MOULLEC
-** Last update Thu Apr 14 19:17:30 2016 Thomas LE MOULLEC
+** Last update Mon Apr 18 20:20:05 2016 Thomas CHABOT
 */
 
 #include "lem_in.h"
@@ -28,6 +28,8 @@ char		*my_epur_str(char *stock)
   j = 0;
   if (!(str = malloc(sizeof(*str) * (my_strlen(stock) + 1))))
     return (NULL);
+  while (stock[i] == ' ' || stock[i] == '\t')
+    i++;
   while (stock[i] != '\0')
     {
       str[j] = stock[i];

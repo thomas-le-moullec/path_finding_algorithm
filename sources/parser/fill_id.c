@@ -5,7 +5,7 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Fri Apr 15 14:49:36 2016 Thomas LE MOULLEC
-** Last update Mon Apr 18 18:01:08 2016 Thomas LE MOULLEC
+** Last update Mon Apr 18 20:48:55 2016 Thomas CHABOT
 */
 
 #include "lem_in.h"
@@ -68,6 +68,8 @@ int             my_strcmp_colon(char *tube, char *name)
   int           j;
 
   j = 0;
+  if (name == NULL || tube == NULL)
+    return (ERROR);
   while (tube[j] != '\0' && tube[j] != '-')
     {
       if (tube[j] != name[j])
@@ -86,6 +88,8 @@ int             my_strcmp_other(char *tube, char *name)
 
   j = 0;
   i = 0;
+  if (name == NULL || tube == NULL)
+    return (ERROR);
   while (tube[j] != '\0' && tube[j] != '-')
     j++;
   if (tube[j] != '-')

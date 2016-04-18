@@ -5,12 +5,12 @@
 ## Login   <le-dio_l@epitech.net>
 ## 
 ## Started on  Thu Apr 14 10:22:07 2016 leo LE DIOURON
-## Last update Mon Apr 18 18:22:25 2016 Thomas LE MOULLEC
+## Last update Mon Apr 18 20:19:31 2016 Thomas CHABOT
 ##
 
 NAME		=	lem_in
 
-CC		=	gcc
+CC		=	gcc -g
 
 RM		=	rm -f
 
