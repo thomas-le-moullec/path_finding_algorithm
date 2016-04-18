@@ -5,7 +5,7 @@
 ** Login   <le-dio_l@epitech.net>
 ** 
 ** Started on  Thu Apr 14 11:07:26 2016 leo LE DIOURON
-** Last update Sun Apr 17 18:57:29 2016 Thomas LE MOULLEC
+** Last update Mon Apr 18 17:54:58 2016 Thomas LE MOULLEC
 */
 
 #include "lem_in.h"
@@ -34,9 +34,7 @@ int	check_history(int *history, int pos)
   return (SUCCESS);
 }
 
-
-
-int     find_best_path(t_data *data, int f, int j)
+int     find_best_path(t_data *data, int f)
 {
   int   i;
 
@@ -55,51 +53,33 @@ int     find_best_path(t_data *data, int f, int j)
   if (data->path->prev == data->path)
     return (ERROR);
   if (data->nodes[data->path->pos].flag != END)
-    if (find_best_path(data, f + 1, j) == ERROR)
+    if (find_best_path(data, f + 1) == ERROR)
       return (ERROR);
   return (SUCCESS);
 }
 
-int	algo(t_data *data)
+int	algo(t_data *data, int a, int j)
 {
   int	nb_turn;
-  int	j;
-  int	a;
 
-  int	i;
-
-  j = 0;
-  a = 0;
   if (creat_list(data) == ERROR)
     return (ERROR);
   nb_turn = data->nodes[data->infos.start].nb_pipe;
-  printf("nb_turn = %d\n", nb_turn);
   if (nb_turn > data->infos.nbr_ants)
     nb_turn = data->infos.nbr_ants;
-  /*  if (nb_turn > 10)
-      nb_turn = 10;*/
   data->best_paths = NULL;
   if (!(data->best_paths = malloc(sizeof(*data->best_paths) * (nb_turn + 1))))
     return (ERROR);
-
   while (j < nb_turn && a == 0)
     {
-      i = 0;
-      printf("J vaut %d\n", j);
       if (creat_list(data) == ERROR)
 	return (ERROR);
-      if (find_best_path(data, 0, j) == ERROR)
+      if (find_best_path(data, 0) == ERROR)
 	a = 1;
-      while (data->path->history[i] != -1)
-	{
-	  printf("his[%d] = %d, ", i, data->path->history[i]);
-	  i++;
-	}
-      printf("\n\n");
       flag_nodes_path(data, data->path->history);
-      data->best_paths[j] = data->path->history;
+      if (a == 0)
+	data->best_paths[j++] = data->path->history;
       delete_elem(&data->path);
-      j++;
     }
   data->best_paths[j] = NULL;
   return (SUCCESS);

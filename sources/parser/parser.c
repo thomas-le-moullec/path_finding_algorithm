@@ -5,7 +5,7 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Sun Apr 17 18:56:42 2016 Thomas LE MOULLEC
-** Last update Sun Apr 17 18:56:48 2016 Thomas LE MOULLEC
+** Last update Mon Apr 18 17:58:54 2016 Thomas LE MOULLEC
 */
 
 #include "lem_in.h"
@@ -14,7 +14,7 @@ int		take_parser(t_data *data)
 {
   int		ret;
 
-  if ((ret = read(0, data->parser.buffer, READ_SIZE * 10)) <= 0)
+  if ((ret = read(0, data->parser.buffer, READ_SIZE)) <= 0)
     return (ERROR);
   data->parser.buffer[ret] = '\0';
   if ((data->infos.nbr_nodes = fill_nbr_nodes(data)) <= 1)

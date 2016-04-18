@@ -5,7 +5,7 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Thu Apr 14 19:13:54 2016 Thomas LE MOULLEC
-** Last update Fri Apr 15 14:38:29 2016 Thomas LE MOULLEC
+** Last update Mon Apr 18 14:46:08 2016 Thomas LE MOULLEC
 */
 
 #include "lem_in.h"
@@ -14,15 +14,14 @@ int		init_nodes(t_data *data)
 {
   int		i;
 
-  i = 0;
-  while (i < data->infos.nbr_nodes + 1)
+  i = -1;
+  while (++i < data->infos.nbr_nodes + 1)
     {
       data->nodes[i].flag = ERROR;
       data->nodes[i].id = 0;
       data->nodes[i].name = NULL;
       data->nodes[i].nb_pipe = 0;
       data->nodes[i].id_pipe = NULL;
-      i++;
     }
   return (SUCCESS);
 }

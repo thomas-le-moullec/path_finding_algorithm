@@ -5,7 +5,7 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Thu Apr 14 15:42:57 2016 Thomas LE MOULLEC
-** Last update Fri Apr 15 15:10:23 2016 Thomas LE MOULLEC
+** Last update Mon Apr 18 18:08:48 2016 Thomas LE MOULLEC
 */
 
 #include "lem_in.h"
@@ -24,5 +24,22 @@ void		my_putstr(char *str, int output)
     {
       my_putchar(str[i], output);
       i++;
+    }
+}
+
+void		my_putstr_buffer(char *str)
+{
+  int		i;
+
+  i = 0;
+  while (str[i] != '\0')
+    {
+      if (str[i] == '\n' && str[i + 1] == '\0')
+	i++;
+      else
+	{
+	  my_putchar(str[i], 1);
+	  i++;
+	}
     }
 }

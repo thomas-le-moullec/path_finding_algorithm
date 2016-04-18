@@ -5,7 +5,7 @@
 ** Login   <le-dio_l@epitech.net>
 ** 
 ** Started on  Fri Apr 15 16:51:19 2016 leo LE DIOURON
-** Last update Sat Apr 16 18:10:58 2016 leo LE DIOURON
+** Last update Mon Apr 18 18:13:03 2016 Thomas LE MOULLEC
 */
 
 #include "lem_in.h"
@@ -38,17 +38,19 @@ int	move_ants(t_data *data, int j)
     {
       data->ant[j].pos_path++;
       if (data->best_paths[data->ant[j].num_path][data->ant[j].pos_path] == -1)
-	{
-	  /*	  printf("JE PASSE PAR LA\n");*/
-	  data->ant[j].flag = FINISH;
-	}
+	data->ant[j].flag = FINISH;
       if (data->ant[j].flag != FINISH)
-	printf("P%d-%s",
-	       j + 1, data->nodes[data->best_paths[data->ant[j].num_path][data->ant[j].pos_path]].name);
+	{
+	  my_putchar('P', 1);
+	  my_put_nbr(j + 1, 1);
+	  my_putchar('-', 1);
+	  my_putstr(data->nodes[data->best_paths[data->ant[j].num_path] \
+				[data->ant[j].pos_path]].name, 1);
+	}
     }
   j++;
   if (data->ant[j].flag != BEGIN && (data->ant[j - 1].flag != FINISH))
-    printf(" ");
+    my_putchar(' ', 1);
   return (j);
 }
 
@@ -57,27 +59,21 @@ int	algo_ant(t_data *data)
   int	j;
   int	num;
 
-  if (data->best_paths == NULL)
-    return (ERROR);
+  if (data->best_paths[0] == NULL)
+    return (error_default("There is an Error, there is no PATH\n"));
+  my_putstr_buffer(data->parser.buffer);
   if (fill_ant(data) == ERROR)
     return (ERROR);
-  j = 0;
-  /*  while (data->best_paths[j] != NULL)
-    {
-      i = 0;
-      while (data->best_paths[j][i] != -1)
-	printf("data->best_paths[%d][%d] = %d\t", j, i, data->best_paths[j][i++]);
-      j++;
-      printf("\n");
-      }*/
   while (data->ant[data->infos.nbr_ants - 1].flag != FINISH)
     {
       j = 0;
       num = 0;
       while (data->ant[j].flag != BEGIN)
 	j = move_ants(data, j);
-      printf("\n");
-      while (data->best_paths[num] != NULL && data->ant[j].flag == BEGIN && j < data->infos.nbr_ants)
+      if (data->ant[data->infos.nbr_ants - 1].flag != FINISH)
+	my_putchar('\n', 1);
+      while (data->best_paths[num] != NULL && data->ant[j].flag == BEGIN \
+	     && j < data->infos.nbr_ants)
 	{
 	  data->ant[j++].flag = CURRENT;
 	  num++;

@@ -5,7 +5,7 @@
 ** Login   <le-dio_l@epitech.net>
 ** 
 ** Started on  Fri Apr 15 14:38:28 2016 leo LE DIOURON
-** Last update Sat Apr 16 11:25:18 2016 leo LE DIOURON
+** Last update Mon Apr 18 18:04:05 2016 Thomas LE MOULLEC
 */
 
 #include "lem_in.h"
@@ -30,10 +30,6 @@ int		cpy_elem(t_path **actual_path, int new_pos)
     }
   new_path->history[i++] = new_pos;
   new_path->history[i] = -1;
-  /*  i = 0;
-  while (new_path->history[i] != -1)
-    printf("___%d___\n", new_path->history[i++]);
-    printf("\n");*/
   new_path->next = (*actual_path);
   new_path->prev = (*actual_path)->prev;
   (*actual_path)->prev->next = new_path;

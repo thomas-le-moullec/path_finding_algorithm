@@ -5,7 +5,7 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Fri Apr 15 14:49:36 2016 Thomas LE MOULLEC
-** Last update Sat Apr 16 16:18:10 2016 leo LE DIOURON
+** Last update Mon Apr 18 18:01:08 2016 Thomas LE MOULLEC
 */
 
 #include "lem_in.h"
@@ -14,8 +14,8 @@ int             fill_id_pipe(t_data *data, int i)
 {
   int           j;
 
-  j = 0;
-  while (data->infos.tubes[j] != NULL)
+  j = -1;
+  while (data->infos.tubes[++j] != NULL)
     {
       if (my_strcmp_colon(data->infos.tubes[j], \
                           data->nodes[i].name) == SUCCESS)
@@ -33,7 +33,6 @@ int             fill_id_pipe(t_data *data, int i)
             return (ERROR);
 	  data->nodes[i].cmpt++;
         }
-      j++;
     }
   return (SUCCESS);
 }
@@ -57,13 +56,10 @@ int             my_cut_id(t_data *data, int j)
     return (error_malloc());
   if ((tmp = my_strcpy_ptr(data->infos.tubes[j], tmp, ptr)) == NULL)
     return (error_malloc());
-  x = 0;
-  while (x < data->infos.nbr_nodes)
-    {
-      if (my_strcmp(data->nodes[x].name, tmp) == SUCCESS)
-        return (data->nodes[x].id);
-      x++;
-    }
+  x = -1;
+  while (++x < data->infos.nbr_nodes)
+    if (my_strcmp(data->nodes[x].name, tmp) == SUCCESS)
+      return (data->nodes[x].id);
   return (error_correspondance(tmp, data));
 }
 
@@ -122,14 +118,9 @@ int             my_cut_other(t_data *data, int j)
     return (error_malloc());
   if ((tmp = my_strcpy_colon(data->infos.tubes[j], tmp)) == NULL)
     return (error_malloc());
-  x = 0;
-  while (x < data->infos.nbr_nodes)
-    {
-      if (my_strcmp(data->nodes[x].name, tmp) == SUCCESS)
-	{
-	  return (data->nodes[x].id);
-	}
-      x++;
-    }
+  x = -1;
+  while (++x < data->infos.nbr_nodes)
+    if (my_strcmp(data->nodes[x].name, tmp) == SUCCESS)
+      return (data->nodes[x].id);
   return (error_correspondance(tmp, data));
 }

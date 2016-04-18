@@ -5,7 +5,7 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Thu Apr 14 19:49:20 2016 Thomas LE MOULLEC
-** Last update Fri Apr 15 19:47:05 2016 Thomas LE MOULLEC
+** Last update Mon Apr 18 15:24:19 2016 Thomas LE MOULLEC
 */
 
 #include "lem_in.h"
@@ -73,6 +73,7 @@ int		my_end(int *i, t_data *data)
 
 int             double_com_fct(int *i, char *line, t_data *data)
 {
+  data->parser.nbr_line++;
   if (line[2] == 's')
     {
       my_free(line);

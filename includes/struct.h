@@ -5,7 +5,7 @@
 ** Login   <le-dio_l@epitech.net>
 ** 
 ** Started on  Thu Apr 14 10:32:03 2016 leo LE DIOURON
-** Last update Sun Apr 17 14:09:04 2016 leo LE DIOURON
+** Last update Mon Apr 18 18:19:39 2016 Thomas LE MOULLEC
 */
 
 #ifndef STRUCT_H_
@@ -19,7 +19,7 @@
 #define START		2
 #define END		3
 
-#define READ_SIZE      	1000000
+#define READ_SIZE      	30000000
 #define DOUBLE_COM	0
 #define SIMPLE_COM      1
 #define LINKS      	2

@@ -5,7 +5,7 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Thu Apr 14 18:58:54 2016 Thomas LE MOULLEC
-** Last update Sat Apr 16 17:11:56 2016 leo LE DIOURON
+** Last update Mon Apr 18 17:42:56 2016 Thomas LE MOULLEC
 */
 
 #include "lem_in.h"
@@ -67,7 +67,6 @@ int             check_line(t_data *data, int *i)
     return (fill_nbr_ants(data, line));
   if ((ret = find_type(data, line)) == ERROR)
     return (error_type(data, line));
-  ret = find_type(data, line);
   if (((data->fct[ret])(i, line, data)) == ERROR)
     return (ERROR);
   return (SUCCESS);

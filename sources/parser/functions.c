@@ -5,7 +5,7 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Thu Apr 14 17:15:20 2016 Thomas LE MOULLEC
-** Last update Sat Apr 16 11:40:24 2016 Thomas LE MOULLEC
+** Last update Mon Apr 18 18:01:26 2016 Thomas LE MOULLEC
 */
 
 #include "lem_in.h"
@@ -28,13 +28,10 @@ int             links_fct(int *i, char *line, t_data *data)
   static int    first = 0;
 
   j = 0;
-  if (first == 0)
+  if (first++ == 0)
     static_ptr(data, i);
-  first++;
   tmp = NULL;
   other = NULL;
-  if ((valid_link(line)) == ERROR)
-    return (error_link(line, data));
   if ((tmp = links_cpy(&j, line)) == NULL)
     return (error_malloc());
   if ((other = other_cpy(&j, line, 0)) == NULL)
@@ -56,9 +53,9 @@ int		nodes_fct(int *i, char *line, t_data *data)
   data->nodes[data->infos.j].flag = EMPTY;
   data->nodes[data->infos.j].id = data->infos.j;
   data->nodes[data->infos.j].name = find_name(line);
-  data->infos.j++;
-  if ((data->nodes[data->infos.j].name = NULL))
+  if ((data->nodes[data->infos.j].name == NULL))
     return (error_node(data, line));
+  data->infos.j++;
   my_free(line);
   return (SUCCESS);
 }

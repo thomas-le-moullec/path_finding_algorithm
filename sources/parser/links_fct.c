@@ -5,7 +5,7 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Sat Apr 16 11:38:57 2016 Thomas LE MOULLEC
-** Last update Sat Apr 16 11:40:26 2016 Thomas LE MOULLEC
+** Last update Mon Apr 18 15:18:59 2016 Thomas LE MOULLEC
 */
 
 #include "lem_in.h"
@@ -13,7 +13,7 @@
 int             static_ptr(t_data *data, int *i)
 {
   data->infos.ret = *i - 2;
-  while (data->parser.buffer[data->infos.ret] != '\0' && \
+  while (data->infos.ret > 0 && \
          data->parser.buffer[data->infos.ret] != '\n')
     data->infos.ret--;
   data->infos.ret++;
@@ -24,18 +24,16 @@ int             links_cmp(t_data *data, char *line, char *tmp, char *other)
 {
   int           j;
 
-  j = 0;
-  while (j < data->infos.nbr_nodes && \
-         (my_strcmp(tmp, data->nodes[j].name) == ERROR))
-    j++;
+  j = -1;
+  while (++j < data->infos.nbr_nodes && \
+         (my_strcmp(tmp, data->nodes[j].name) == ERROR));
   if (data->nodes[j].name == NULL || data->nodes[j].id == ERROR)
     return (error_link(line, data));
   data->nodes[j].nb_pipe++;
   data->infos.nbr_links++;
-  j = 0;
-  while (j < data->infos.nbr_nodes && \
-         (my_strcmp(other, data->nodes[j].name) == ERROR))
-    j++;
+  j = -1;
+  while (++j < data->infos.nbr_nodes && \
+         (my_strcmp(other, data->nodes[j].name) == ERROR));
   if (data->nodes[j].name == NULL || data->nodes[j].id == ERROR)
     return (error_link(line, data));
   data->nodes[j].nb_pipe++;

@@ -5,7 +5,7 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Thu Apr 14 22:51:01 2016 Thomas LE MOULLEC
-** Last update Sat Apr 16 12:50:12 2016 leo LE DIOURON
+** Last update Mon Apr 18 15:32:44 2016 Thomas LE MOULLEC
 */
 
 #include "lem_in.h"
@@ -31,6 +31,7 @@ int             loop_tubes(t_data *data, int *y, int i, int x)
       if (data->parser.buffer[i] == '#')
         while (data->parser.buffer[i] != '\0' && \
                data->parser.buffer[i++] != '\n');
+      data->infos.tubes[*y] = NULL;
       if (!(data->infos.tubes[*y] = malloc(sizeof(char) * \
 					   (count_line(data, i) + 1))))
         return (error_malloc());
@@ -70,10 +71,10 @@ int             fill_links(t_data *data)
 {
   int           i;
 
-  i = 0;
+  i = -1;
   if ((fill_tubes(data)) == ERROR)
     return (ERROR);
-  while (i < data->infos.nbr_nodes)
+  while (++i < data->infos.nbr_nodes)
     {
       if (!(data->nodes[i].id_pipe = malloc(sizeof(int) * \
                                             (data->nodes[i].nb_pipe + 1))))
@@ -81,7 +82,6 @@ int             fill_links(t_data *data)
       data->nodes[i].cmpt = 0;
       if ((fill_id_pipe(data, i)) == ERROR)
         return (ERROR);
-      i++;
     }
   return (SUCCESS);
 }
