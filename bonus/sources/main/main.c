@@ -5,7 +5,7 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Sun Apr 17 18:54:50 2016 Thomas LE MOULLEC
-** Last update Mon Apr 18 21:11:39 2016 Hervé TCHIKLADZE
+** Last update Wed Apr 20 11:02:47 2016 leo LE DIOURON
 */
 
 #include "lem_in.h"
@@ -29,7 +29,7 @@ int		main(int ac, char **av)
   t_data	data;
 
   if (!(data.parser.buffer = malloc(READ_SIZE)))
-    exit(-1);
+    return (ERROR);
   (void)av;
   if ((parser(ac, &data)) == ERROR)
     return (ERROR);

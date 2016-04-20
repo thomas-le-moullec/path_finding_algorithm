@@ -5,7 +5,7 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Sun Apr 17 18:54:16 2016 Thomas LE MOULLEC
-** Last update Wed Apr 20 10:52:55 2016 Thomas CHABOT
+** Last update Wed Apr 20 11:23:46 2016 leo LE DIOURON
 */
 
 #ifndef LEMIN_H_
@@ -97,24 +97,34 @@ void            delete_elem(t_path **);
 int             cpy_elem(t_path **, int);
 
 int                     main_loop(t_data *);
+int                     init_graph(t_data *);
 int                     graphic(t_data *);
 t_bunny_response        loop(void *);
-t_bunny_response        echap_down(t_bunny_event_state, t_bunny_keysym, void *);
+t_bunny_response        echap_down(t_bunny_event_state, t_bunny_keysym, \
+				   void *);
+t_bunny_position        *move_pos(t_bunny_position *, t_data *, int);
 int                     init_win(t_data *);
-int                    draw_nodes(t_data *);
+int                     draw_nodes(t_data *);
 int                     draw_links(t_data *);
+int                     move_ant_graph(t_data *);
 
 void                    noise_color_full(t_bunny_pixelarray  *);
 
-void                    tekpixel(t_bunny_pixelarray *, t_bunny_position, unsigned int);
-void                    tekpixel2(t_bunny_pixelarray *, t_bunny_position, unsigned int);
+void                    tekpixel(t_bunny_pixelarray *,\
+				 t_bunny_position, unsigned int);
+void                    tekpixel2(t_bunny_pixelarray *,\
+				  t_bunny_position, unsigned int);
 
-int                    tekline(t_bunny_pixelarray *, t_bunny_position *, t_data *, unsigned int);
-void                    tekline_vertical(t_bunny_pixelarray *, t_bunny_position *, unsigned int);
-void                    tekline_swap(t_bunny_pixelarray *, t_bunny_position *, unsigned int);
+int                     tekline(t_bunny_pixelarray *,\
+			       t_bunny_position *, t_data *, unsigned int);
+void                    tekline_vertical(t_bunny_pixelarray *,\
+					 t_bunny_position *, unsigned int);
+void                    tekline_swap(t_bunny_pixelarray *,\
+				     t_bunny_position *, unsigned int);
 t_bunny_position        *swap(t_bunny_position *);
 
-void                    tekcircle(t_bunny_pixelarray *, t_bunny_position, unsigned int, int);
+void                    tekcircle(t_bunny_pixelarray *,\
+				  t_bunny_position, unsigned int, int);
 
 char		*my_strcpy_ptr(char *, char *, int);
 char            *my_strcpy_colon(char *, char *);
