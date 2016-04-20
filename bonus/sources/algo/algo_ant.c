@@ -5,7 +5,7 @@
 ** Login   <le-dio_l@epitech.net>
 ** 
 ** Started on  Fri Apr 15 16:51:19 2016 leo LE DIOURON
-** Last update Wed Apr 20 10:54:35 2016 Thomas CHABOT
+** Last update Wed Apr 20 16:57:07 2016 Hervé TCHIKLADZE
 */
 
 #include "lem_in.h"
@@ -51,7 +51,6 @@ int	algo_ant(t_data *data)
 
   if (data->best_paths[0] == NULL)
     return (error_default("There is an Error, there is no PATH\n"));
-  my_putstr_buffer(data->parser.buffer);
   if (fill_ant(data) == ERROR)
     return (ERROR);
   while (data->ant[data->infos.nbr_ants - 1].flag != FINISH)
@@ -62,7 +61,7 @@ int	algo_ant(t_data *data)
 	j = move_ants(data, j);
       if (graphic(data) == ERROR)
         return (ERROR);
-      usleep(2000000);
+      usleep(data->time);
       while (data->best_paths[num] != NULL && j < data->infos.nbr_ants && \
 	     data->ant[j].flag == BEGIN)
 	{

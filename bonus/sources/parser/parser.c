@@ -5,7 +5,7 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Sun Apr 17 18:56:42 2016 Thomas LE MOULLEC
-** Last update Mon Apr 18 17:58:54 2016 Thomas LE MOULLEC
+** Last update Wed Apr 20 16:54:02 2016 Hervé TCHIKLADZE
 */
 
 #include "lem_in.h"
@@ -42,7 +42,7 @@ int		end_parser(t_data *data)
 
 int		parser(int ac, t_data *data)
 {
-  if (ac != 1)
+  if (ac != 2)
     return (error_args());
   if ((init_parser(data)) == ERROR)
     return (ERROR);

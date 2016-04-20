@@ -5,7 +5,7 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Sun Apr 17 18:54:50 2016 Thomas LE MOULLEC
-** Last update Wed Apr 20 11:02:47 2016 leo LE DIOURON
+** Last update Wed Apr 20 17:02:53 2016 Hervé TCHIKLADZE
 */
 
 #include "lem_in.h"
@@ -33,6 +33,7 @@ int		main(int ac, char **av)
   (void)av;
   if ((parser(ac, &data)) == ERROR)
     return (ERROR);
+  data.time = my_get_nbr(av[1]);
   if (init_win(&data) == ERROR)
     return (ERROR);
   if (algo(&data, 0, 0) == ERROR)

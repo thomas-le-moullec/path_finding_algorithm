@@ -5,7 +5,7 @@
 ** Login   <le-dio_l@epitech.net>
 ** 
 ** Started on  Thu Apr 14 10:32:03 2016 leo LE DIOURON
-** Last update Mon Apr 18 21:08:37 2016 Hervé TCHIKLADZE
+** Last update Wed Apr 20 16:55:42 2016 Hervé TCHIKLADZE
 */
 
 #ifndef STRUCT_H_
@@ -85,6 +85,7 @@ typedef struct		s_infos
 
 typedef struct		s_data
 {
+  int			time;
   t_graph               *graph;
   t_parser              parser;
   t_maillon             *nodes;
