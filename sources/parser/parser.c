@@ -5,7 +5,7 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Sun Apr 17 18:56:42 2016 Thomas LE MOULLEC
-** Last update Wed Apr 20 10:38:01 2016 Thomas LE MOULLEC
+** Last update Wed Apr 20 10:39:40 2016 Thomas LE MOULLEC
 */
 
 #include "lem_in.h"
@@ -14,7 +14,7 @@ int		take_parser(t_data *data)
 {
   int		ret;
 
-  if (!(data.parser.buffer = malloc(READ_SIZE)))
+  if (!(data->parser.buffer = malloc(READ_SIZE)))
     return (ERROR);
   if ((ret = read(0, data->parser.buffer, READ_SIZE)) <= 0)
     return (ERROR);
