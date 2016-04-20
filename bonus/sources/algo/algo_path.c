@@ -5,7 +5,7 @@
 ** Login   <le-dio_l@epitech.net>
 ** 
 ** Started on  Thu Apr 14 11:07:26 2016 leo LE DIOURON
-** Last update Wed Apr 20 10:47:31 2016 Thomas CHABOT
+** Last update Wed Apr 20 11:05:51 2016 Thomas LE MOULLEC
 */
 
 #include "lem_in.h"
@@ -77,7 +77,6 @@ int     algo_loop(t_data *data, int *a, int i, int *j)
   delete_elem(&data->path);
   return (0);
 }
-
 
 int	algo(t_data *data, int a, int j)
 {
