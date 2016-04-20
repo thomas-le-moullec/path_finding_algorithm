@@ -5,7 +5,7 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Sun Apr 17 18:54:50 2016 Thomas LE MOULLEC
-** Last update Mon Apr 18 21:04:31 2016 Thomas CHABOT
+** Last update Wed Apr 20 10:37:38 2016 Thomas LE MOULLEC
 */
 
 #include "lem_in.h"
@@ -28,8 +28,6 @@ int		main(int ac, char **av)
 {
   t_data	data;
 
-  if (!(data.parser.buffer = malloc(READ_SIZE)))
-    exit(-1);
   (void)av;
   if ((parser(ac, &data)) == ERROR)
     return (ERROR);
