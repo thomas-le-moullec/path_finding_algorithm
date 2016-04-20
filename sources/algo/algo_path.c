@@ -5,7 +5,7 @@
 ** Login   <le-dio_l@epitech.net>
 ** 
 ** Started on  Thu Apr 14 11:07:26 2016 leo LE DIOURON
-** Last update Mon Apr 18 20:32:52 2016 Thomas CHABOT
+** Last update Wed Apr 20 10:45:02 2016 Thomas CHABOT
 */
 
 #include "lem_in.h"
@@ -61,6 +61,23 @@ int     find_best_path(t_data *data, int f)
   return (SUCCESS);
 }
 
+int	algo_loop(t_data *data, int *a, int i, int *j)
+{
+  if (creat_list(data) == ERROR)
+    return (ERROR);
+  if (find_best_path(data, 0) == ERROR)
+    *a = 1;
+  if (*j == 0)
+    while (data->path->history[i] != -1)
+      i++;
+  if (flag_nodes_path(data, data->path->history, i) == ERROR)
+    *a = 1;
+  if (*a == 0)
+    data->best_paths[(*j)++] = data->path->history;
+  delete_elem(&data->path);
+  return (0);
+}
+
 int	algo(t_data *data, int a, int j)
 {
   int	nb_turn;
@@ -76,20 +93,7 @@ int	algo(t_data *data, int a, int j)
   if (!(data->best_paths = malloc(sizeof(*data->best_paths) * (nb_turn + 1))))
     return (ERROR);
   while (j < nb_turn && a == 0)
-    {
-      if (creat_list(data) == ERROR)
-	return (ERROR);
-      if (find_best_path(data, 0) == ERROR)
-	a = 1;
-      if (j == 0)
-	while (data->path->history[i] != -1)
-	  i++;
-      if (flag_nodes_path(data, data->path->history, i) == ERROR)
-	a = 1;
-      if (a == 0)
-	data->best_paths[j++] = data->path->history;
-      delete_elem(&data->path);
-    }
+    algo_loop(data, &a, i, &j);
   data->best_paths[j] = NULL;
   return (SUCCESS);
 }
