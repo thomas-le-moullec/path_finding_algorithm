@@ -5,7 +5,7 @@
 ## Login   <le-dio_l@epitech.net>
 ## 
 ## Started on  Thu Apr 14 10:22:07 2016 leo LE DIOURON
-## Last update Mon Apr 18 21:12:42 2016 Hervé TCHIKLADZE
+## Last update Wed Apr 20 11:20:10 2016 leo LE DIOURON
 ##
 
 NAME		=	lem_in
@@ -57,7 +57,8 @@ SRCS		=	$(MAIN)main.c			\
                         $(GRAPH)graphic.c               \
 			$(GRAPH)noise_color.c           \
                         $(GRAPH)tekpixel.c              \
-			$(GRAPH)tekline.c               \
+			$(GRAPH)graphic_second.c        \
+			$(GRAPH)graphic_third.c        \
                         $(GRAPH)tekcircle.c             \
 			$(MY_LIB)disp.c			\
 			$(MY_LIB)my_strcmp.c		\
