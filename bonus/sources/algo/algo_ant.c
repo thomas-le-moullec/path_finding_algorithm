@@ -5,7 +5,7 @@
 ** Login   <le-dio_l@epitech.net>
 ** 
 ** Started on  Fri Apr 15 16:51:19 2016 leo LE DIOURON
-** Last update Mon Apr 18 21:12:23 2016 Hervé TCHIKLADZE
+** Last update Wed Apr 20 10:54:35 2016 Thomas CHABOT
 */
 
 #include "lem_in.h"
@@ -62,7 +62,7 @@ int	algo_ant(t_data *data)
 	j = move_ants(data, j);
       if (graphic(data) == ERROR)
         return (ERROR);
-      usleep(20000);
+      usleep(2000000);
       while (data->best_paths[num] != NULL && j < data->infos.nbr_ants && \
 	     data->ant[j].flag == BEGIN)
 	{
