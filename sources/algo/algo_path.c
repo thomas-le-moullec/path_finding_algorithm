@@ -5,7 +5,7 @@
 ** Login   <le-dio_l@epitech.net>
 ** 
 ** Started on  Thu Apr 14 11:07:26 2016 leo LE DIOURON
-** Last update Wed Apr 20 10:45:02 2016 Thomas CHABOT
+** Last update Thu Apr 21 14:53:58 2016 leo LE DIOURON
 */
 
 #include "lem_in.h"
@@ -52,9 +52,10 @@ int     find_best_path(t_data *data, int f)
 	cpy_elem(&data->path, data->nodes[data->path->pos].id_pipe[i]);
       i++;
     }
-  delete_elem(&data->path);
-  if (data->path->prev == data->path)
+
+  if (data->path->prev == data->path && data->nodes[data->path->pos].flag != END)
     return (ERROR);
+  delete_elem(&data->path);
   if (data->nodes[data->path->pos].flag != END)
     if (find_best_path(data, f + 1) == ERROR)
       return (ERROR);

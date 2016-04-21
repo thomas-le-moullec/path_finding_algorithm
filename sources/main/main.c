@@ -5,7 +5,7 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Sun Apr 17 18:54:50 2016 Thomas LE MOULLEC
-** Last update Wed Apr 20 10:37:38 2016 Thomas LE MOULLEC
+** Last update Thu Apr 21 14:55:35 2016 leo LE DIOURON
 */
 
 #include "lem_in.h"
@@ -30,12 +30,12 @@ int		main(int ac, char **av)
 
   (void)av;
   if ((parser(ac, &data)) == ERROR)
-    return (ERROR);
+    return (2);
   if (algo(&data, 0, 0) == ERROR)
-    return (ERROR);
+    return (2);
   if (algo_ant(&data) == ERROR)
-    return (ERROR);
+    return (2);
   free_nodes(&data);
   free(data.parser.buffer);
-  return (SUCCESS);
+  return (1);
 }
