@@ -5,7 +5,7 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Thu Apr 14 18:58:54 2016 Thomas LE MOULLEC
-** Last update Mon Apr 18 20:45:29 2016 Thomas CHABOT
+** Last update Fri Apr 22 17:48:29 2016 Thomas LE MOULLEC
 */
 
 #include "lem_in.h"
@@ -67,20 +67,25 @@ int             check_line(t_data *data, int *i)
     return (fill_nbr_ants(data, line));
   if ((ret = find_type(data, line)) == ERROR)
     return (error_type(data, line));
-  if (((data->fct[ret])(i, line, data)) == ERROR)
+  if ((ret = ((data->fct[ret])(i, line, data))) == ERROR)
     return (ERROR);
+  if (ret == FATAL_ERROR)
+    return (FATAL_ERROR);
   return (SUCCESS);
 }
 
 int             check_buffer(t_data *data)
 {
   int           i;
+  int		ret;
 
   i = 0;
   while (data->parser.buffer[i] != '\0')
     {
-      if ((check_line(data, &i)) == ERROR)
+      if ((ret = check_line(data, &i)) == ERROR)
 	return (ERROR);
+      if (ret == FATAL_ERROR)
+	return (FATAL_ERROR);
       data->parser.nbr_line++;
       while (data->parser.buffer[i] == '\n')
         i++;

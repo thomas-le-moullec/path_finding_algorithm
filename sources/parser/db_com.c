@@ -5,7 +5,7 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Thu Apr 14 19:49:20 2016 Thomas LE MOULLEC
-** Last update Mon Apr 18 15:24:19 2016 Thomas LE MOULLEC
+** Last update Fri Apr 22 14:31:16 2016 Thomas LE MOULLEC
 */
 
 #include "lem_in.h"
@@ -39,7 +39,7 @@ int		my_start(int *i, t_data *data)
   if ((tmp = copy_line(data, i)) == NULL)
     return (error_copying(data));
   if ((valid_node(tmp)) == ERROR)
-    return (error_node(data, tmp));
+    return (ERROR);
   data->parser.nbr_start++;
   data->nodes[data->infos.j].flag = START;
   data->nodes[data->infos.j].id = data->infos.j;
@@ -59,7 +59,7 @@ int		my_end(int *i, t_data *data)
   if ((tmp = copy_line(data, i)) == NULL)
     return (error_copying(data));
   if ((valid_node(tmp)) == ERROR)
-    return (error_node(data, tmp));
+    return (ERROR);
   data->parser.nbr_end++;
   data->nodes[data->infos.j].flag = END;
   data->nodes[data->infos.j].id = data->infos.j;

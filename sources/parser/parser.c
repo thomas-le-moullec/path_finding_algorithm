@@ -5,7 +5,7 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Sun Apr 17 18:56:42 2016 Thomas LE MOULLEC
-** Last update Wed Apr 20 10:39:40 2016 Thomas LE MOULLEC
+** Last update Fri Apr 22 14:32:34 2016 Thomas LE MOULLEC
 */
 
 #include "lem_in.h"
@@ -26,7 +26,9 @@ int		take_parser(t_data *data)
     return (error_malloc());
   if ((init_nodes(data)) == ERROR)
     return (ERROR);
-  if ((check_buffer(data)) == ERROR)
+  if ((check_buffer(data)) == FATAL_ERROR)
+    return (ERROR);
+  if (end_parser(data) == ERROR)
     return (ERROR);
   if ((fill_links(data)) == ERROR)
     return (ERROR);
@@ -49,8 +51,6 @@ int		parser(int ac, t_data *data)
   if ((init_parser(data)) == ERROR)
     return (ERROR);
   if (take_parser(data) == ERROR)
-    return (ERROR);
-  if (end_parser(data) == ERROR)
     return (ERROR);
   return (SUCCESS);
 }
