@@ -5,7 +5,7 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Sat Apr 16 11:27:37 2016 Thomas LE MOULLEC
-** Last update Fri Apr 22 14:30:09 2016 Thomas LE MOULLEC
+** Last update Sat Apr 16 11:30:38 2016 Thomas LE MOULLEC
 */
 
 #include "lem_in.h"
@@ -38,7 +38,7 @@ int             error_node(t_data *data, char *line)
   my_putstr(" line : ", 2);
   my_put_nbr(data->parser.nbr_line + 1, 2);
   my_putchar('\n', 2);
-  return (FATAL_ERROR);
+  return (ERROR);
 }
 
 int             error_type(t_data *data, char *line)

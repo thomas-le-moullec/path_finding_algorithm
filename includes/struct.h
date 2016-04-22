@@ -5,14 +5,13 @@
 ** Login   <le-dio_l@epitech.net>
 ** 
 ** Started on  Thu Apr 14 10:32:03 2016 leo LE DIOURON
-** Last update Fri Apr 22 14:15:30 2016 Thomas LE MOULLEC
+** Last update Mon Apr 18 18:19:39 2016 Thomas LE MOULLEC
 */
 
 #ifndef STRUCT_H_
 # define STRUCT_H_
 
 #define ERROR		-1
-#define FATAL_ERROR	-2
 #define SUCCESS		0
 
 #define EMPTY		0
