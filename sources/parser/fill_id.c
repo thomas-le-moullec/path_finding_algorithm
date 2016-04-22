@@ -5,7 +5,7 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Fri Apr 15 14:49:36 2016 Thomas LE MOULLEC
-** Last update Mon Apr 18 20:48:55 2016 Thomas CHABOT
+** Last update Fri Apr 22 14:36:34 2016 Thomas LE MOULLEC
 */
 
 #include "lem_in.h"
@@ -23,6 +23,8 @@ int             fill_id_pipe(t_data *data, int i)
           data->nodes[i].id_pipe[data->nodes[i].cmpt] = my_cut_id(data, j);
           if (data->nodes[i].id_pipe[data->nodes[i].cmpt] == ERROR)
             return (ERROR);
+	  if (data->nodes[i].id_pipe[data->nodes[i].cmpt] == FATAL_ERROR)
+	    return (FATAL_ERROR);
           data->nodes[i].cmpt++;
         }
       if (my_strcmp_other(data->infos.tubes[j], \
@@ -31,6 +33,8 @@ int             fill_id_pipe(t_data *data, int i)
           data->nodes[i].id_pipe[data->nodes[i].cmpt] = my_cut_other(data, j);
           if (data->nodes[i].id_pipe[data->nodes[i].cmpt] == ERROR)
             return (ERROR);
+	  if (data->nodes[i].id_pipe[data->nodes[i].cmpt] == FATAL_ERROR)
+	    return (FATAL_ERROR);
 	  data->nodes[i].cmpt++;
         }
     }

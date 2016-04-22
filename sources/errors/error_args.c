@@ -5,7 +5,7 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Fri Apr 15 15:16:38 2016 Thomas LE MOULLEC
-** Last update Sat Apr 16 11:30:54 2016 Thomas LE MOULLEC
+** Last update Fri Apr 22 14:18:17 2016 Thomas LE MOULLEC
 */
 
 #include "lem_in.h"
@@ -25,7 +25,7 @@ int		error_reading()
 int		error_malloc()
 {
   my_putstr("There is an Error, one Malloc crashed\n", 2);
-  return (ERROR);
+  return (FATAL_ERROR);
 }
 
 int		error_copying(t_data *data)
@@ -33,5 +33,5 @@ int		error_copying(t_data *data)
   my_putstr("Error to copy the line : ", 2);
   my_put_nbr(data->parser.nbr_line + 1, 2);
   my_putchar('\n', 2);
-  return (ERROR);
+  return (FATAL_ERROR);
 }
