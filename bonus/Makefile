@@ -5,12 +5,12 @@
 ## Login   <le-dio_l@epitech.net>
 ## 
 ## Started on  Thu Apr 14 10:22:07 2016 leo LE DIOURON
-## Last update Wed Apr 20 11:20:10 2016 leo LE DIOURON
+## Last update Sat Apr 23 18:03:04 2016 leo LE DIOURON
 ##
 
 NAME		=	lem_in
 
-CC		=	gcc -g
+CC		=	gcc
 
 RM		=	rm -f
 
