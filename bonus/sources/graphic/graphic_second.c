@@ -5,7 +5,7 @@
 ** Login   <le-dio_l@epitech.net>
 ** 
 ** Started on  Wed Apr 20 11:08:43 2016 leo LE DIOURON
-** Last update Wed Apr 20 11:22:20 2016 leo LE DIOURON
+** Last update Sun Apr 24 17:23:30 2016 Hervé TCHIKLADZE
 */
 
 #include "lem_in.h"
@@ -54,7 +54,6 @@ int                     init_graph(t_data *data)
 {
   int                   i;
 
-  srand(time(NULL));
   i = 0;
   data->graph->nodes = NULL;
   if (!(data->graph->nodes = \
