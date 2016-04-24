@@ -5,7 +5,7 @@
 ** Login   <le-mou_t@epitech.net>
 ** 
 ** Started on  Sun Apr 17 18:54:50 2016 Thomas LE MOULLEC
-** Last update Sun Apr 24 16:56:37 2016 leo LE DIOURON
+** Last update Sun Apr 24 17:00:52 2016 Thomas CHABOT
 */
 
 #include "lem_in.h"
@@ -31,18 +31,18 @@ int		main(int ac, char **av)
   (void)av;
   if ((parser(ac, &data)) == ERROR)
     {
-      if (data->paser.buffer != NULL)
-	my_putstr(data->parser.buffer);
+      if (data.parser.buffer != NULL)
+	my_putstr(data.parser.buffer, 1);
       return (1);
     }
   if (algo(&data, 0, 0) == ERROR)
     {
-      my_putstr(data->parser.buffer);
+      my_putstr(data.parser.buffer, 1);
       return (1);
     }
   if (algo_ant(&data) == ERROR)
     {
-      my_putstr(data->parser.buffer);
+      my_putstr(data.parser.buffer, 1);
       return (1);
     }
   free_nodes(&data);
